@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import {StyledHeader} from './components/Header'
+import { StyledHeader } from './components/Header';
+import { StyledSearchForm } from './components/Input';
+import { Results } from './components/SearchResults';
 // must pass class name and attach to html
 // for styled component styles to apply
 // see https://styled-components.com/docs/basics#styling-any-component
@@ -9,13 +11,23 @@ import {StyledHeader} from './components/Header'
  * @param {object} props
  * @return {JSX}
  */
-function App({className}) {
+const App = ({ className }) => {
+  const [results, setResults] = useState({});
+  const [error, setError] = useState('');
   return (
     <div className={className}>
-      <StyledHeader />
+      <StyledHeader text={'🍸Cocktail Search'} />
+      <StyledSearchForm
+        placeHolder={'e.g., margarita'}
+        id={'cocktail-search'}
+        label={'Search for drinks'}
+        setResults={setResults}
+        setError={setError}
+      />
+      <Results results={results}/>
     </div>
   );
-}
+};
 
 App.propTypes = {
   className: PropTypes.string.isRequired,
@@ -26,4 +38,6 @@ export const StyledApp = styled(App)`
   padding: 10px;
   background: white;
   min-height: 100%;
+  background: #CFD2AD;
+  color: #343470;
 `;

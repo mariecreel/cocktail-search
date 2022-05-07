@@ -1,14 +1,14 @@
-import React from 'react';
-import styled from 'styled-components';
-import PropTypes from 'prop-types';
+import React from 'react'
+import styled from 'styled-components'
+import PropTypes from 'prop-types'
 /**
  * @param {object} props
  * @returns {JSX}
  */
-const Header = ({className}) => {
+const Header = ({className, text}) => {
     return (
         <h1 className={className}>
-            🤠👋 Howdy, y'all!
+            {text}
         </h1>
     )
 }
@@ -18,6 +18,5 @@ Header.propTypes = {
 }
 
 export const StyledHeader = styled(Header)`
-    color: brown;
-    font-family: Helvetica;
+    font-family: 'Playfair Display', serif;
 `
