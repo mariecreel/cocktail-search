@@ -60,11 +60,28 @@ SearchForm.propTypes = {
 export const StyledSearchForm = styled(SearchForm)`
   display: flex;
   flex-direction: column;
+  width: 100%;
+  margin-top: 20px;
   & > #search-input-wrapper {
-    margin: 10px;
+    margin-top: 10px;
     display: flex;
     width: 100%;
     flex-direction: row;
     justify-content: center;
+    & input {
+        width: 75%;
+        border-radius: 20px 0px 0px;
+        color: #343470;
+        border: 2px solid;
+        padding: 5px;
+    }
+    & button {
+        width: 25%;
+        color: #a13c3e;
+        border-radius: 0px 20px 20px 0px;
+        border: 2px solid;
+        background: #f3dddd;
+        font-size: 1.25em;
+    }
   }
 `;
