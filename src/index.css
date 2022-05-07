@@ -2,6 +2,7 @@
 these styles apply base styles to index.html
 but all components will be styled using styled-components
 */
+@import url('https://fonts.googleapis.com/css2?family=Barlow&family=Playfair+Display&display=swap');
 * {
     margin: 0;
     padding: 0;
@@ -11,6 +12,7 @@ but all components will be styled using styled-components
 }
 html {
     height: 100%;
+    font-family: 'Barlow', sans-serif;
 }
 body {
     height: 100%;
