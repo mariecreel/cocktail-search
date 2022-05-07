@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { StyledHeader } from './components/Header';
-import { StyledSearchForm } from './components/Input';
-import { Results } from './components/SearchResults';
+import {StyledHeader} from './components/Header';
+import {StyledSearchForm} from './components/Input';
+import {Results} from './components/SearchResults';
 // must pass class name and attach to html
 // for styled component styles to apply
 // see https://styled-components.com/docs/basics#styling-any-component
@@ -11,7 +11,7 @@ import { Results } from './components/SearchResults';
  * @param {object} props
  * @return {JSX}
  */
-const App = ({ className }) => {
+const App = ({className}) => {
   const [results, setResults] = useState({});
   const [error, setError] = useState('');
   return (
@@ -24,7 +24,7 @@ const App = ({ className }) => {
         setResults={setResults}
         setError={setError}
       />
-      <Results results={results}/>
+      {error ? <div>{error}</div> : <Results results={results}/>}
     </div>
   );
 };

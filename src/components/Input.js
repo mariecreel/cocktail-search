@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
@@ -19,15 +19,15 @@ const SearchForm = ({
     e.preventDefault();
     const baseURL = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=';
     fetch(`${baseURL}${query}`)
-      .then((res) => res.json())
-      .then(
-        (data) => {
-          setResults(data);
-        },
-        (error) => {
-          setError(error);
-        }
-      );
+        .then((res) => res.json())
+        .then(
+            (data) => {
+              setResults(data);
+            },
+            (error) => {
+              setError(error);
+            },
+        );
   };
   return (
     <form onSubmit={searchOnSubmit} role='search' className={className}>
