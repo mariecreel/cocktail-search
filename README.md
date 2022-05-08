@@ -1,5 +1,5 @@
 # [Cocktail Search](https://mariecreel.github.io/cocktail-search)
-Web application that allows users to search for cocktails by name. Powered by [TheCockailDB](https://www.thecocktaildb.com/). Built with React, bootstrapped from my [React App Boilerplate](https://github.com/mariecreel/react-app-boilerplate).
+Web application that allows users to search for cocktails by name. Powered by [TheCocktailDB](https://www.thecocktaildb.com/). Built with React, bootstrapped from my [React App Boilerplate](https://github.com/mariecreel/react-app-boilerplate).
 
 ## Features
 - Color contrast meets recommendations for accessibility
