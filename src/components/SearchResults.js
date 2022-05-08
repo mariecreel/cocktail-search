@@ -30,13 +30,24 @@ const Result = ({className, result, key}) => {
           <li key={`${key}-ingredients`}>
             <h3>Ingredients</h3>
             <ul>
+              {/* ingredients and their measurements are separate
+            in the returned object, but they have the same index,
+            so grab the index from the key for the ingredient and
+            use that number to get the value for the measurement.
+            neither measurement nor ingredient are guaranteed to be null,
+            so check for truthiness before inserting elements into dom.
+            */}
               {Object.keys(result).map(
                   (key) =>
                     key.match(/ingredient/i) &&
-                    result[key] !== null && (
+                  result[key] && (
                       <li key={`${key}-ingredient-${key}`}>
                         {result[key]}{' '}
-                        <em>{result[`strMeasure${key.match(/[0-9]+/)[0]}`]}</em>
+                        {result[`strMeasure${key.match(/[0-9]+/)[0]}`] && (
+                          <em>
+                            {result[`strMeasure${key.match(/[0-9]+/)[0]}`]}
+                          </em>
+                        )}
                       </li>
                     ),
               )}
@@ -76,8 +87,8 @@ const StyledResult = styled(Result)`
       margin-left: 15px;
     }
     & h3 {
-        margin-bottom: 5px;
-        text-decoration: underline;
+      margin-bottom: 5px;
+      text-decoration: underline;
     }
   }
 `;
