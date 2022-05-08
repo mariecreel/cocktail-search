@@ -13,6 +13,7 @@ const SearchForm = ({
   id,
   setResults,
   setError,
+  setSearchTerm,
 }) => {
   const [query, setQuery] = useState('');
   const searchOnSubmit = (e) => {
@@ -23,6 +24,7 @@ const SearchForm = ({
         .then(
             (data) => {
               setResults(data);
+              setSearchTerm(query);
             },
             (error) => {
               setError(error);
@@ -55,6 +57,7 @@ SearchForm.propTypes = {
   id: PropTypes.string.isRequired,
   setResults: PropTypes.func.isRequired,
   setError: PropTypes.func.isRequired,
+  setSearchTerm: PropTypes.func.isRequired,
 };
 
 export const StyledSearchForm = styled(SearchForm)`

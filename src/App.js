@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import {StyledHeader} from './components/Header';
 import {StyledSearchForm} from './components/Input';
 import {Results} from './components/SearchResults';
+import {StyledLiveRegion} from './components/LiveRegion';
 // must pass class name and attach to html
 // for styled component styles to apply
 // see https://styled-components.com/docs/basics#styling-any-component
@@ -14,6 +15,7 @@ import {Results} from './components/SearchResults';
 const App = ({className}) => {
   const [results, setResults] = useState({});
   const [error, setError] = useState('');
+  const [searchTerm, setSearchTerm] = useState('');
   return (
     <div className={className}>
       <StyledHeader text={'🍸Cocktail Search'} />
@@ -23,7 +25,12 @@ const App = ({className}) => {
         label={'Search for drinks'}
         setResults={setResults}
         setError={setError}
+        setSearchTerm={setSearchTerm}
       />
+      <StyledLiveRegion
+        textContent={results.drinks && searchTerm &&
+        `Showing ${results.drinks.length} results for ${searchTerm}`
+        }/>
       {error ? <div>{error}</div> : <Results results={results}/>}
     </div>
   );
